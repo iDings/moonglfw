@@ -17,9 +17,9 @@ PREFIX?=$(MINGW_PREFIX)
 endif
 
 # Directory where to install Lua modules
-L_DIR=$(PREFIX)/share/lua/$(LUAVER)
+L_DIR=$(INST_LUADIR)
 # Directory where to install Lua C modules
-C_DIR=$(PREFIX)/lib/lua/$(LUAVER)
+C_DIR=$(INST_LIBDIR)
 # Directory where to install C headers
 H_DIR=$(PREFIX)/include
 # Directory where to install C libraries
@@ -30,9 +30,9 @@ DEBUG=1
 endif
 
 ifdef LINUX
-#INCDIR = -I/usr/include
-#LIBDIR = -L/usr/lib
-#LIBS = -lglfw
+INCDIR = -I$(LUA_INCDIR) -I/usr/include
+LIBDIR = -L/usr/lib
+LIBS = -lglfw
 endif
 ifdef MINGW
 #LIBS = -lglfw3 -llua
